@@ -116,13 +116,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Download pyenv 
+# curl -fsSL https://pyenv.run | bash
+
+# Setting pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
-# Added by dbt Fusion extension (ensure dbt binary dir on PATH)
-if [[ ":$PATH:" != *":/home/eloy/.local/bin:"* ]]; then
-  export PATH=/home/eloy/.local/bin:"$PATH"
-fi
+
+# Load pyenv-virtualenv automatically by adding
+eval "$(pyenv virtualenv-init -)"
+
 # Added by dbt Fusion extension
 alias dbtf=/home/eloy/.local/bin/dbt
 
