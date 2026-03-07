@@ -1,0 +1,16 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    wlp2s0: # verificar qual é interface padrão com comando ip addr
+      dhcp4: no
+      addresses:
+        - 192.168.110.220/24
+      routes:
+        - to: default
+          via: 192.168.110.1
+      nameservers:
+        addresses:
+          - 192.168.110.220
+          - 8.8.8.8
+          - 8.8.4.4
