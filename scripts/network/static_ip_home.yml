@@ -14,3 +14,15 @@ network:
           - 10.3.152.100
           - 8.8.8.8
           - 8.8.4.4
+    enp1s0:
+      dhcp4: no
+      addresses:
+        - 10.3.152.100/24
+      routes:
+        - to: default
+          via: 10.3.152.1
+      nameservers:
+        addresses:
+          - 10.3.152.100
+          - 8.8.8.8
+          - 8.8.4.4 
